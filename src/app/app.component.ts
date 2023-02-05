@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-test';
+  title: string = 'Hello World';
+  age: number = 6;
+
+  toggleAddTask(){
+    console.log('Toggle');
+  }
 }

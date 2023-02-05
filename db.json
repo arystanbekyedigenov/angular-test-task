@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Doctors Appointment",
+      "day": "May 5th at 2:30",
+      "reminder": true,
+      "status": "1"
+    },
+    {
+      "id": 2,
+      "text": "Visit guitar Teacher",
+      "day": "May 26th at 4:30",
+      "reminder": false,
+      "status": "0"
+    },
+    {
+      "id": 3,
+      "text": "Groceries",
+      "day": "April 4th at 1:30",
+      "reminder": true,
+      "status": "0"
+    },
+    {
+      "id": 4,
+      "text": "In Progress task",
+      "day": "April 12th at 2:30",
+      "reminder": false,
+      "status": "1"
+    },
+    {
+      "id": 5,
+      "text": "Done Task",
+      "day": "April 12th at 2:30",
+      "reminder": true,
+      "status": "2"
+    }
+  ]
+}
