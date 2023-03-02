@@ -224,6 +224,15 @@ h3,p {
   margin: 0;
 }
 
+h4 {
+  margin: 10px 0 10px 0;
+}
+
+.task-comment {
+  font-size: 12px;
+  color:#888888;
+}
+
 .flex {
   display: flex;
 }

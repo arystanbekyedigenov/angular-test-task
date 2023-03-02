@@ -3,7 +3,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dra
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../Task';
 
-import { faTimes, faBell, faPlus, faEllipsisH, faCalendar, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faBell, faPlus, faEllipsisH, faCalendar, faCircle, faCommentDots, faBan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-drag-drop-list',
@@ -21,6 +21,8 @@ export class DragDropListComponent implements OnInit {
   faEllipsisH = faEllipsisH;
   faCalendar = faCalendar;
   faCircle = faCircle;
+  faComment = faCommentDots;
+  faReport = faBan;
 
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {

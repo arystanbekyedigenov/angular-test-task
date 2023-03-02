@@ -23,7 +23,8 @@
             <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
             <div class="flex jc-sb" style="width: 100%;">
-                <p><span><fa-icon [icon]=faCircle class="grey"></fa-icon></span> {{item.type}}</p>
+                <!-- <p><span><fa-icon [icon]=faCircle class="grey"></fa-icon></span> {{item.type}}</p> -->
+                <p><span><fa-icon [icon]=faCircle [ngStyle]="{'color': groupInfo.headerColor}"></fa-icon></span> {{item.type}}</p>
                 <fa-icon
                     [icon]=faEllipsisH
                     class="grey"
@@ -48,6 +49,14 @@
                         [icon]="faTimes"
                     ></fa-icon>
                 </div>
+            </div>
+            <div>
+                <h4 [ngStyle]="{'color': groupInfo.headerColor}">{{ groupInfo.groupName }}</h4>
+            </div>
+            <div class="flex grid-gap-10 ai-c">
+                <p class="task-comment"><span><fa-icon [icon]="faComment" [ngStyle]="{'color':'#46afd1'}"></fa-icon></span> 0 comments</p>
+                <p class="task-comment">|</p>
+                <p class="task-comment"><span><fa-icon [icon]="faReport" [ngStyle]="{'color':'#ff0000'}"></fa-icon></span> 0 reports</p>
             </div>
         </div>
     </div>
