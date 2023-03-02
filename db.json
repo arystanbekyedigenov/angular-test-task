@@ -2,17 +2,17 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Doctors Appointment",
-      "day": "May 5th at 2:30",
+      "text": "First Task",
+      "day": "123123",
       "reminder": true,
       "status": "1"
     },
     {
       "id": 2,
-      "text": "Visit guitar Teacher",
-      "day": "May 26th at 4:30",
-      "reminder": false,
-      "status": "0"
+      "text": "Second Task",
+      "day": "123123",
+      "reminder": true,
+      "status": "1"
     },
     {
       "id": 3,
@@ -34,6 +34,20 @@
       "day": "April 12th at 2:30",
       "reminder": true,
       "status": "2"
+    },
+    {
+      "text": "First Task",
+      "day": "23",
+      "reminder": true,
+      "status": "0",
+      "id": 6
+    },
+    {
+      "text": "Second Task",
+      "day": "sqsqsqsq",
+      "reminder": false,
+      "status": "0",
+      "id": 7
     }
   ]
 }

@@ -1,7 +1,12 @@
 <button
     class="btn"
-    [ngStyle]="{'background-color': color, 'margin' : margin, 'width' : width, 'color' : fontColor }"
+    [ngStyle]="{'background-color': color, 'margin' : margin, 'width' : width, 'color' : fontColor, 'padding' : padding }"
     (click)="onClick()"    
 >
+    <fa-icon
+        class="fa-icon"
+        *ngIf="faIcon"
+        [icon]=faIcon
+    ></fa-icon>
     {{ text }}
 </button>

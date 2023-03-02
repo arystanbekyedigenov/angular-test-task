@@ -1,0 +1,103 @@
+<div class="flex jc-sb ai-c">
+    <p>Last updated on: 1st March, 2022</p>
+    <div class="grid grid-auto-flow-column grid-gap-10">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <input type="text" class="search-form" id="search" name="" formControlName="search" placeholder="Search">
+        </form>
+
+        <div>
+            <app-button
+                margin = "0px"
+                color = "#F6F6FF"
+                text = "Add group"
+                fontColor = "#99A2B3"
+                padding = "5px 10px"
+                [faIcon] = "faPlus"
+                (btnClick) = "toggleAddGroup()"
+            ></app-button>
+
+            <form *ngIf="showAddGroup" class="add-form" (ngSubmit)="onAddGroup()">
+                <div class="form-control">
+                    <label for="text">Group Name</label>
+                    <input type="text" name="groupName" [(ngModel)]="groupName" id="groupName" placeholder="Add Task" />
+                    <label for="bgColor">Select Background Color:</label>
+                    <input type="color" name="bgColor" [(ngModel)]="bgColor" id="bgColor" value="#ff0000"><br><br>
+                </div>
+                <input type="submit" class="btn" value="Save Task">
+            </form>
+        </div>
+
+        <div>
+            <app-button
+                margin = "0px"
+                color = "#F6F6FF"
+                text = "Add task"
+                fontColor = "#99A2B3"
+                padding = "5px 10px"
+                [faIcon] = "faPlus"
+                (btnClick) = "toggleAddTask()"
+            ></app-button>
+
+            <app-add-task (onAddTask)="onAddTask($event)" ></app-add-task>
+        </div>
+        
+        <div>
+            <app-button
+                margin = "0px"
+                color = "#F6F6FF"
+                text = "Sort"
+                fontColor = "#99A2B3"
+                padding = "5px 10px"
+                [faIcon] = "faSort"
+                (btnClick) = "showSorting()"
+            ></app-button>
+
+            <form *ngIf="showSortings" [formGroup]="form" class="sorting-form" (ngSubmit)="onSubmit()">
+                <label>
+                    <input type="radio" id="name" value="name" name="sort" formControlName="sort" checked>
+                    <span>by name</span>
+                </label>
+
+                <label>
+                    <input type="radio" id="priority" value="priority" name="sort" formControlName="sort" >
+                    <span>by priority</span>
+                </label>
+
+                <label>
+                    <input type="radio" id="date" value="date" name="sort" formControlName="sort" >
+                    <span>by date</span>
+                </label>
+                
+                <input type="submit" class="btn" value="Apply Sorting">
+            </form>
+        </div>
+
+        <app-button
+            margin = "0px"
+            color = "#F6F6FF"
+            text = "Customize"
+            fontColor = "#99A2B3"
+            padding = "5px 10px"
+            [faIcon] = "faThLarge"
+            (btnClick) = "console()"
+        ></app-button>
+        <app-button
+            margin = "0px"
+            color = "#F6F6FF"
+            text = "Filter"
+            fontColor = "#99A2B3"
+            padding = "5px 10px"
+            [faIcon] = "faFilter"
+            (btnClick) ="showFilter()"
+        ></app-button>
+        <app-button
+            margin = "0px"
+            color = "#fff"
+            fontColor = "#99A2B3"
+            padding = "5px 10px"
+            [faIcon] = "faEllipsisH"
+            (btnClick)="console()"
+        ></app-button>
+    </div>
+    
+</div>

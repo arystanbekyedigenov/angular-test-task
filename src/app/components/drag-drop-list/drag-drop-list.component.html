@@ -1,0 +1,55 @@
+<div class="example-container">
+    <div class="flex jc-sb">
+        <div class="status-header" [ngStyle]="{'background-color': groupInfo.headerColor}">{{ groupInfo.groupName }}</div>
+        <div class="as-c grid grid-auto-flow-column grid-gap-10">
+            <fa-icon
+                [icon]="faPlus"
+                class="grey"
+            ></fa-icon>
+            <fa-icon
+                [icon]="faEllipsisH"
+                class="grey"
+            ></fa-icon>
+        </div>
+    </div>
+  
+    <div
+        cdkDropList
+        [cdkDropListData]="tasks"
+        [attr.groupStatus]="groupInfo.groupStatus"
+        class="example-list grid grid-auto-flow-row grid-gap-10"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of tasks" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+            <div class="flex jc-sb" style="width: 100%;">
+                <p><span><fa-icon [icon]=faCircle class="grey"></fa-icon></span> {{item.type}}</p>
+                <fa-icon
+                    [icon]=faEllipsisH
+                    class="grey"
+                ></fa-icon>
+            </div>
+            <div class="flex jc-sb" style="width: 100%;">
+                <div>
+                    <h3>
+                        {{item.text}}
+                    </h3>
+                    <p><span><fa-icon [icon]=faCalendar></fa-icon></span> {{item.day}}</p>
+                </div>
+                <div class="as-c">
+                    <fa-icon
+                        *ngIf="item.reminder"
+                        class="fa-bell"
+                        [icon]="faBell"
+                    ></fa-icon>
+                    <fa-icon 
+                        class="fa-times"
+                        (click)="onDelete(item)"
+                        [icon]="faTimes"
+                    ></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

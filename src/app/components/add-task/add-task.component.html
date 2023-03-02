@@ -4,8 +4,16 @@
         <input type="text" name="text" [(ngModel)]="text" id="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
+        <label for="type">Type</label>
+        <input type="text" name="type" [(ngModel)]="type" id="type" placeholder="Add Task Type" />
+    </div>
+    <div class="form-control">
         <label for="day">Day & Time</label>
         <input type="text" name="day" [(ngModel)]="day" id="day" placeholder="Add Day & Time" />
+    </div>
+    <div class="form-control">
+        <label for="priority">Priority level</label>
+        <input type="range" name="priority" [(ngModel)]="priority" id="priority" min="1" max="3" />
     </div>
     <div class="form-control">
         <label for="reminder">Set Reminder</label>
