@@ -71,4 +71,49 @@ export class GroupDragDropListComponent implements OnInit {
       this.groups[index] = this.taskService.searchTasks(group, e);
     });
   }
+
+  onChangeGroupPosition(e){
+    if( this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction] ){
+      //Switching groups statuses
+      [
+        this.groupsInfo[this.groupsInfo.indexOf(e.group)].groupStatus, 
+        this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus
+      ] = 
+      [
+        this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus, 
+        this.groupsInfo[this.groupsInfo.indexOf(e.group)].groupStatus
+      ]
+    } else return;
+
+    //Resetting group objects to localstorage
+    [
+      this.groupsInfo[this.groupsInfo.indexOf(e.group)], 
+      this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction]
+    ].forEach(group => {
+      this.taskService.addGroup(group);
+    });
+
+    //Getting tasks by group
+    let group1 = this.taskService.getTasksWithStatus(this.groupsInfo[this.groupsInfo.indexOf(e.group)].groupStatus);
+    let group2 = this.taskService.getTasksWithStatus(this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus);
+
+    //Updating tasks' status to make them stay in commom group
+    group1.forEach( task =>{
+      task.status = this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus;
+      this.taskService.updateTaskStatus(task);
+    });
+
+    group2.forEach( task =>{
+      task.status = this.groupsInfo[this.groupsInfo.indexOf(e.group)].groupStatus;
+      this.taskService.updateTaskStatus(task);
+    });
+
+    this.generateGroups();
+  }
+
+  onDeleteGroup(group){
+    // console.log(group);
+    this.taskService.deleteGroup(group);
+    this.generateGroups();
+  }
 }

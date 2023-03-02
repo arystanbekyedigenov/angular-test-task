@@ -3,12 +3,27 @@
         <div class="status-header" [ngStyle]="{'background-color': groupInfo.headerColor}">{{ groupInfo.groupName }}</div>
         <div class="as-c grid grid-auto-flow-column grid-gap-10">
             <fa-icon
+                [icon]="faAngleLeft"
+                [ngStyle]="{'color':'grey','cursor':'pointer'}"
+                (click)="chageGroupPosition(groupInfo, -1)"
+            ></fa-icon>
+            <fa-icon
+                [icon]="faAngleRight"
+                [ngStyle]="{'color':'grey','cursor':'pointer'}"
+                (click)="chageGroupPosition(groupInfo, 1)"
+            ></fa-icon>
+            <fa-icon
                 [icon]="faPlus"
                 class="grey"
             ></fa-icon>
             <fa-icon
                 [icon]="faEllipsisH"
                 class="grey"
+            ></fa-icon>
+            <fa-icon 
+                class="fa-times"
+                (click)="deleteGroup(groupInfo)"
+                [icon]="faTimes"
             ></fa-icon>
         </div>
     </div>
@@ -24,7 +39,7 @@
 
             <div class="flex jc-sb" style="width: 100%;">
                 <!-- <p><span><fa-icon [icon]=faCircle class="grey"></fa-icon></span> {{item.type}}</p> -->
-                <p><span><fa-icon [icon]=faCircle [ngStyle]="{'color': groupInfo.headerColor}"></fa-icon></span> {{item.type}}</p>
+                <p class="task-status"><span><fa-icon [icon]=faCircle [ngStyle]="{'color': groupInfo.headerColor}"></fa-icon></span> {{item.type}}</p>
                 <fa-icon
                     [icon]=faEllipsisH
                     class="grey"

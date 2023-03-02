@@ -84,6 +84,13 @@ export class TaskService {
     // return this.getTasksWithStatus(task.status);
   }
 
+  deleteGroup(group){
+    localStorage.removeItem(group.groupStatus);
+    this.getTasksWithStatus(group.groupStatus).forEach(task=>{
+      this.deleteTask(task);
+    });
+  }
+
   updateTaskStatus(task: Task) {
     localStorage.setItem(task.id, JSON.stringify(task));
   }

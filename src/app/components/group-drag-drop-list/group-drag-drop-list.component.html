@@ -11,5 +11,7 @@
         [tasks]="group"
         [groupInfo]="groupsInfo[i]"
         (onDeleteTask)="onDelete($event)"
+        (onChangeGroupPos)="onChangeGroupPosition($event)"
+        (onDeleteGroup)="onDeleteGroup($event)"
     ></app-drag-drop-list>
 </div>

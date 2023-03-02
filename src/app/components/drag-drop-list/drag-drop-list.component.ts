@@ -3,7 +3,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dra
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../Task';
 
-import { faTimes, faBell, faPlus, faEllipsisH, faCalendar, faCircle, faCommentDots, faBan } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faBell, faPlus, faEllipsisH, faCalendar, faCircle, faCommentDots, faBan, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-drag-drop-list',
@@ -14,6 +14,8 @@ export class DragDropListComponent implements OnInit {
   @Input() tasks: Task[];
   @Input() groupInfo;
   @Output() onDeleteTask = new EventEmitter();
+  @Output() onChangeGroupPos = new EventEmitter();
+  @Output() onDeleteGroup = new EventEmitter();
 
   faTimes = faTimes;
   faBell = faBell;
@@ -23,6 +25,8 @@ export class DragDropListComponent implements OnInit {
   faCircle = faCircle;
   faComment = faCommentDots;
   faReport = faBan;
+  faAngleLeft = faAngleLeft;
+  faAngleRight = faAngleRight;
 
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
@@ -31,8 +35,6 @@ export class DragDropListComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
-      console.log(event.container.data[event.previousIndex]);
-      console.log(event.container.data[event.currentIndex]);
       this.switchTasksPositions(event.container.data[event.previousIndex], event.container.data[event.currentIndex]);
 
     } else {
@@ -66,5 +68,13 @@ export class DragDropListComponent implements OnInit {
 
   switchTasksPositions(previousTask: Task, currentTask: Task){
     this.taskService.switchTasksPositions(previousTask, currentTask);
+  }
+
+  chageGroupPosition(group, direction){
+    this.onChangeGroupPos.emit({group, direction});
+  }
+
+  deleteGroup(group){
+    this.onDeleteGroup.emit(group);
   }
 }
