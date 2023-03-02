@@ -68,14 +68,6 @@ export class AddTaskComponent implements OnInit {
       status: this.findAvailableGroup()
     };
 
-    // if(localStorage.getItem('tasks')){
-    //   let tasks = localStorage.getItem('tasks');
-    //   let parsedTasks = JSON.parse(tasks);
-    //   parsedTasks.push(newTask);
-    //   console.log(parsedTasks);
-    //   localStorage.setItem('tasks', JSON.stringify(parsedTasks));
-    // } else localStorage.setItem('tasks', JSON.stringify([newTask]));
-
     this.onAddTask.emit(newTask);
 
     this.text = '';

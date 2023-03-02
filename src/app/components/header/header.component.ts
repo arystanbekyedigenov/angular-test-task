@@ -96,8 +96,10 @@ export class HeaderComponent implements OnInit {
       isGroup: "true"
     }
 
-    // console.log(newGroup);
     this.onGroupAdd.emit(newGroup);
+
+    this.groupName = '';
+    this.bgColor = '#ff0000';
   }
 
   generateID(): string {

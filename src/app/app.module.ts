@@ -7,8 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import * as appComponent from './app.component';
 import { GroupDragDropListComponent } from './components/group-drag-drop-list/group-drag-drop-list.component';
 import { ButtonComponent } from './components/button/button.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskItemComponent } from './components/task-item/task-item.component';
 import { DragDropListComponent } from './components/drag-drop-list/drag-drop-list.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,8 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     appComponent.AppComponent,
     GroupDragDropListComponent,
     ButtonComponent,
-    TasksComponent,
-    TaskItemComponent,
     DragDropListComponent,
     AddTaskComponent,
     HeaderComponent

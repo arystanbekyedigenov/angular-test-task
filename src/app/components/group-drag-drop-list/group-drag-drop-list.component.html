@@ -5,17 +5,6 @@
     (onGroupAdd)="addGroup($event)"
 ></app-header>
 
-<!-- <app-add-task (onAddTask)="addTask($event)" ></app-add-task> -->
-
-<!-- <app-button 
-    margin = "10px 0px 0px 0px"
-    width = "100%"
-    color = "#dfdee2"
-    text = "{{showAddTask ? 'Close' : 'Add Task +'}}"
-    fontColor = "{{showAddTask ? 'red' : 'rgb(0, 110, 255)'}}"
-    (btnClick)="toggleAddTask()"
-></app-button> -->
-
 <div cdkDropListGroup class="table">
     <app-drag-drop-list
         *ngFor="let group of groups; let i = index"

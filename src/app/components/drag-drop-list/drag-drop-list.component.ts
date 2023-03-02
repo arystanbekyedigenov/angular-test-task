@@ -23,8 +23,6 @@ export class DragDropListComponent implements OnInit {
   faCircle = faCircle;
 
   drop(event: CdkDragDrop<any[]>) {
-    // console.log(event);
-    // console.log(event.container.element.nativeElement.getAttribute('groupStatus'));
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -56,7 +54,6 @@ export class DragDropListComponent implements OnInit {
   }
 
   onDelete(task: Task){
-    // console.log(task);
     this.onDeleteTask.emit({task});
   }
 

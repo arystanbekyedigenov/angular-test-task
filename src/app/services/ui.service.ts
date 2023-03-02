@@ -30,7 +30,6 @@ export class UiService {
   toggleSorting(){
     this.showSortings = !this.showSortings;
     this.sortingSubject.next(this.showSortings);
-    // console.log(this.showSortings);
   }
 
   onToggleSorting(): Observable<any> {
