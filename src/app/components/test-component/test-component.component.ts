@@ -17,7 +17,7 @@ export class TestComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  drop(event: CdkDragDrop<any[]>) {
+  dropItem(event: CdkDragDrop<any[]>) {
     console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -29,6 +29,11 @@ export class TestComponentComponent implements OnInit {
         event.currentIndex,
       );
     }
+  }
+
+  dropTable(event: CdkDragDrop<any[]>) {
+    console.log(event);
+    moveItemInArray(this.tables, event.previousIndex, event.currentIndex);
   }
 
 }

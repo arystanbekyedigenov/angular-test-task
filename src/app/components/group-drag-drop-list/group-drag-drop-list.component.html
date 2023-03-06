@@ -5,7 +5,7 @@
     (onGroupAdd)="addGroup($event)"
 ></app-header>
 
-<div cdkDropListGroup class="table" cdkDropList (cdkDropListDropped)="dropGroup($event)">
+<!-- <div cdkDropListGroup class="table" cdkDropList (cdkDropListDropped)="dropGroup($event)">
     <app-drag-drop-list
         *ngFor="let group of groups; let i = index"
         [tasks]="group"
@@ -15,4 +15,37 @@
         (onDeleteGroup)="onDeleteGroup($event)"
         cdkDrag
     ></app-drag-drop-list>
+</div> -->
+
+<div cdkDropListGroup>
+    <div
+        class="example-list flex"
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="groupsInfo"
+        (cdkDropListDropped)="dropItem($event)"
+        cdkDropListGroup
+    >
+        <!-- <div class="example-box" *ngFor="let group of groupsInfo; let i = index" cdkDrag>
+            <h3>{{group.groupName}}</h3>
+            <div
+                cdkDropList
+                [cdkDropListData]="groups[i]"
+                class="example-list"
+                (cdkDropListDropped)="dropItem($event)">
+                <div class="example-box" *ngFor="let task of groups[i]" cdkDrag>
+                    <p>{{task.text}}</p>
+                </div>
+            </div>
+        </div> -->
+        <app-drag-drop-list
+            *ngFor="let group of groups; let i = index"
+            [tasks]="group"
+            [groupInfo]="groupsInfo[i]"
+            (onDeleteTask)="onDelete($event)"
+            (onChangeGroupPos)="onChangeGroupPosition($event)"
+            (onDeleteGroup)="onDeleteGroup($event)"
+            cdkDrag
+        ></app-drag-drop-list>
+    </div>
 </div>

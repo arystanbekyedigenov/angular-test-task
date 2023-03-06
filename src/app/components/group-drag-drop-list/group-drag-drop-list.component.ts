@@ -97,7 +97,7 @@ export class GroupDragDropListComponent implements OnInit {
     let group1 = this.taskService.getTasksWithStatus(this.groupsInfo[this.groupsInfo.indexOf(e.group)].groupStatus);
     let group2 = this.taskService.getTasksWithStatus(this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus);
 
-    //Updating tasks' status to make them stay in commom group
+    //Updating tasks' statuses to make them stay in commom group
     group1.forEach( task =>{
       task.status = this.groupsInfo[this.groupsInfo.indexOf(e.group) + e.direction].groupStatus;
       this.taskService.updateTaskStatus(task);
@@ -118,11 +118,52 @@ export class GroupDragDropListComponent implements OnInit {
   }
 
   dropGroup(event: CdkDragDrop<any[]>){
-    console.log(event);
+    // console.log(event);
     // moveItemInArray(
     //   event.container.data,
     //   event.previousIndex,
     //   event.currentIndex
     // );
+  }
+
+  dropItem(event: CdkDragDrop<any[]>) {
+    console.log(event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      //Switching groups statuses
+      [
+        this.groupsInfo[event.previousIndex].groupStatus, 
+        this.groupsInfo[event.currentIndex].groupStatus
+      ] = 
+      [
+        this.groupsInfo[event.currentIndex].groupStatus, 
+        this.groupsInfo[event.previousIndex].groupStatus
+      ]
+
+      let switchingGroups = [this.groupsInfo[event.previousIndex], this.groupsInfo[event.currentIndex]];
+
+      //Resetting group objects to localstorage
+      switchingGroups.forEach(group => {
+        this.taskService.addGroup(group);
+      });
+
+      //Getting tasks by group
+      let group1 = this.taskService.getTasksWithStatus(this.groupsInfo[event.previousIndex].groupStatus);
+      let group2 = this.taskService.getTasksWithStatus(this.groupsInfo[event.currentIndex].groupStatus);
+
+      //Updating tasks' statuses to make them stay in commom group
+      group1.forEach( task =>{
+        task.status = this.groupsInfo[event.currentIndex].groupStatus;
+        this.taskService.updateTaskStatus(task);
+      });
+
+      group2.forEach( task =>{
+        task.status = this.groupsInfo[event.previousIndex].groupStatus;
+        this.taskService.updateTaskStatus(task);
+      });
+
+      this.generateGroups();
+      
+    }
   }
 }
