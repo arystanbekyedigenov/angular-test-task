@@ -11,6 +11,7 @@ import { DragDropListComponent } from './components/drag-drop-list/drag-drop-lis
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TestComponentComponent } from './components/test-component/test-component.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ButtonComponent,
     DragDropListComponent,
     AddTaskComponent,
-    HeaderComponent
+    HeaderComponent,
+    TestComponentComponent
   ],
   imports: [
     BrowserModule,

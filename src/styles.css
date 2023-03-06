@@ -54,7 +54,7 @@
   border: dashed 2px #D1CDD1;
   border-radius: 10px;
   margin-bottom: 10px;
-  min-height: 60px;
+  min-height: 128px;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 

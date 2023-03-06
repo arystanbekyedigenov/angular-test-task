@@ -5,7 +5,7 @@
     (onGroupAdd)="addGroup($event)"
 ></app-header>
 
-<div cdkDropListGroup class="table">
+<div cdkDropListGroup class="table" cdkDropList (cdkDropListDropped)="dropGroup($event)">
     <app-drag-drop-list
         *ngFor="let group of groups; let i = index"
         [tasks]="group"
@@ -13,5 +13,6 @@
         (onDeleteTask)="onDelete($event)"
         (onChangeGroupPos)="onChangeGroupPosition($event)"
         (onDeleteGroup)="onDeleteGroup($event)"
+        cdkDrag
     ></app-drag-drop-list>
 </div>

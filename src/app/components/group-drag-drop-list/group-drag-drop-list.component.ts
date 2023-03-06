@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TaskService } from '../../services/task.service';
 import { UiService } from '../../services/ui.service';
 import { Observable, Subscription } from 'rxjs';
@@ -115,5 +115,14 @@ export class GroupDragDropListComponent implements OnInit {
     // console.log(group);
     this.taskService.deleteGroup(group);
     this.generateGroups();
+  }
+
+  dropGroup(event: CdkDragDrop<any[]>){
+    console.log(event);
+    // moveItemInArray(
+    //   event.container.data,
+    //   event.previousIndex,
+    //   event.currentIndex
+    // );
   }
 }
